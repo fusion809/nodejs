@@ -16,6 +16,8 @@ pkgrel=1
 arch=('i686' 'x86_64')
 url='http://nodejs.org/'
 license=('MIT')
+depends=('openssl' 'zlib' 'icu' 'libuv' 'http-parser')
+makedepends=('python2' 'procps-ng')
 source=("http://nodejs.org/dist/v$_nodever/node-v$_nodever.tar.xz"
 "https://github.com/npm/npm/archive/v$_npmver.tar.gz")
 sha256sums=('SKIP'
@@ -53,8 +55,6 @@ build() {
 
 package_nodejs() {
   pkgver=${_nodever}
-	depends=('openssl' 'zlib' 'icu' 'libuv' 'http-parser')
-	makedepends=('python2' 'procps-ng')
 	pkgdesc='Evented I/O for V8 JavaScript'
 
   cd node-v$pkgver
